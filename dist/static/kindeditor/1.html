@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+		<form id="form1" runat="server">
+			<script charset="utf-8" src="kindeditor-all.js" type="text/javascript"></script>
+			<script type="text/javascript" charset="utf-8">
+				var callBackPath = 'redirect.html'; //redirect.html的请求路径 例如 http://www.abc.com/redirect.html
+				KindEditor.ready(function(K) {
+					editor = K.create('#txtContent', {
+						filePostName: 'file', //跟服务端参数对应
+						allowFileManager: true,
+						uploadJson: 'http://192.168.2.146:8080/zlwymaster/platform/kindeditor/upload?callBackPath=' + callBackPath,
+						items: ['source', 'image']
+					});
+				});
+			</script>
+			<textarea cols="60" id="txtContent" style="width: 600px; height: 300px;" runat="server" readonly="readonly"></textarea>
+		</form>
+	</body>
+
+</html>

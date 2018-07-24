@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="editor_id" name="content" style="height:300px;"></div>
+		<textarea id="editor_id01" name="Content" data-name="textarea" style="max-width: 100%;width:98%;height:350px;"></textarea>
+
+
+		<script src="jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="kindeditor-all.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+//			var callBackPath = 'redirect.html'; //redirect.html的请求路径 例如 http://www.abc.com/redirect.html
+			var callBackPath = 'http://127.0.0.1:8020/web/HZJFmanagement/static/kindeditor/redirect.html'; //redirect.html的请求路径 例如 http://www.abc.com/redirect.html
+			
+				KindEditor.ready(function(K) {
+		                window.editor = K.create('#editor_id',{
+//		                	afterBlur: function () { this.sync(); },
+		                	width:'100%',
+		                	resizeType:1,
+//		                	uploadJson : 'http://192.168.2.146:8080/zlwymaster/platform/kindeditor/upload',
+//			                fileManagerJson : 'http://192.168.2.146:8080/zlwymaster/platform/kindeditor/upload',
+			                
+			                filePostName: 'file',//跟服务端参数对应
+                			allowFileManager: true,
+                			uploadJson: 'http://192.168.2.146:8080/zlwymaster/platform/kindeditor/upload?callBackPath='+callBackPath,
+
+		                	//resizeType 2或1或0，2时可以拖动改变宽度和高度，1时只能改变高度，0时不能拖动。  数据类型: Int  默认值: 2
+		                });
+		        });
+		        
+		        
+		        
+//				function LoadEditor(TextName) {
+//				    var editor = KindEditor.create('textarea[name="' + TextName + '"]', {
+//				        allowFileManager: true,
+//				        autoHeightMode: true,
+//				        afterCreate: function() {
+//				            this.loadPlugin('autoheight');
+//				        },
+//				        afterChange: function() {
+//				            this.sync();
+//				        },
+//				        afterBlur: function() {
+//				            this.sync();
+//				        }
+//				    });
+//				    return editor;
+//				}
+//				
+				//setTimeout(function(){
+				//  var arrEditor = $("#editor_id01");
+				//  $.each(arrEditor, function() {
+				//      // 加载编辑器
+				//      LoadEditor($(this).attr('name'));
+				//  });
+				//},1000)
+
+			
+
+				
+		</script>
+		
+	</body>
+</html>
